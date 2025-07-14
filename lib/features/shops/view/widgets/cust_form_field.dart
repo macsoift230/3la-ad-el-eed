@@ -6,15 +6,19 @@ class CustFormField extends StatelessWidget {
   final String hint;
   final String? Function(String?)? validator;
   final void Function(String?)? onSaved;
+  TextEditingController controller ;
 
   CustFormField({
     super.key,
     this.color,
     this.borderColor,
+    required this.controller,
     required this.hint,
     this.validator,
     this.onSaved,
   });
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +30,7 @@ class CustFormField extends StatelessWidget {
       ),
       child: Center(
         child: TextFormField(
-          onSaved: onSaved,
+          controller: controller,
           decoration: InputDecoration(
             border: OutlineInputBorder(borderSide: BorderSide.none),
             hintStyle: TextStyle(fontSize: 20),
